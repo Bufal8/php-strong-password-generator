@@ -19,17 +19,20 @@
             settype($length, 'integer');
             // var_dump($length);
             // Ciclo for per creare un carattere numerico fino alla lunghezza scelta
-            for ($i=1; $i === $length; $i++) { 
+            for ($i = 1; $i <= $length; $i++) { 
                 $randN = rand(0,9);
                 // Pusho in un array vuoto un numero random da 0 a 9
-                $passw[] = $randN;
                 
-                return $passw;
-            }
+                $passwArr[] = $randN;
+                
+                // return $passw;
+            };
+            echo "<h1>ECCO LA TUA PASSWORD DI " . $length . " CARATTERI</h1>";
+            $passw = implode("",$passwArr);
+            echo $passw;
             // echo $passw;
-            var_dump($passw);
-            // $cazzo = ["sei", "un", "coglione"];
-            // var_dump(implode("", $cazzo));
+            // var_dump($passw);
+
         ?>
     </form>
 
