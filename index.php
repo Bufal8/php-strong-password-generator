@@ -15,15 +15,24 @@
         <?php
         // Tramite il metodo _GET ottengo il valore inserito nell' input
             $length = $_GET['length'];
+            // var_dump($length);
+            settype($length, 'integer');
+            // var_dump($length);
             // Ciclo for per creare un carattere numerico fino alla lunghezza scelta
             for ($i=1; $i === $length; $i++) { 
+                $randN = rand(0,9);
                 // Pusho in un array vuoto un numero random da 0 a 9
-                $passw[] = mt_rand(0,9);
+                $passw[] = $randN;
                 
+                return $passw;
             }
+            // echo $passw;
             var_dump($passw);
-            
+            // $cazzo = ["sei", "un", "coglione"];
+            // var_dump(implode("", $cazzo));
         ?>
     </form>
+
+    
 </body>
 </html>
