@@ -19,19 +19,33 @@
             settype($length, 'integer');
             // var_dump($length);
             // Ciclo for per creare un carattere numerico fino alla lunghezza scelta
-            for ($i = 1; $i <= $length; $i++) { 
-                $randN = rand(0,9);
-                // Pusho in un array vuoto un numero random da 0 a 9
+            // for ($i = 1; $i <= $length; $i++) { 
+            //     $randN = rand(0,9);
+            //     // Pusho in un array vuoto un numero random da 0 a 9
                 
-                $passwArr[] = $randN;
+            //     $passwArr[] = $randN;
                 
-                // return $passw;
-            };
-            echo "<h1>ECCO LA TUA PASSWORD DI " . $length . " CARATTERI</h1>";
-            $passw = implode("",$passwArr);
-            echo $passw;
+            //     // return $passw;
+            // };
+            // echo "<h1>ECCO LA TUA PASSWORD DI " . $length . " CARATTERI</h1>";
+            // $passw = implode("",$passwArr);
+            // echo $passw;
             // echo $passw;
             // var_dump($passw);
+
+            // // Funzione generatore caratteri
+            function generateRandomString($length) {
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!£$%&/()=?^_-:.;,<>';
+                $charactersLength = strlen($characters);
+                $randomString = '';
+                for ($i = 1; $i <= $length; $i++) {
+                    $randomString .= $characters[random_int(0, $charactersLength - 1)];
+                }
+                return $randomString;
+            }
+
+            // generateRandomString();
+            // echo $randomString;
 
         ?>
     </form>
