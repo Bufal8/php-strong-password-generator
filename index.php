@@ -17,32 +17,26 @@
             $length = $_GET['length'];
             // var_dump($length);
             settype($length, 'integer');
-            // var_dump($length);
-            // Ciclo for per creare un carattere numerico fino alla lunghezza scelta
-            // for ($i = 1; $i <= $length; $i++) { 
-            //     $randN = rand(0,9);
-            //     // Pusho in un array vuoto un numero random da 0 a 9
-                
-            //     $passwArr[] = $randN;
-                
-            //     // return $passw;
-            // };
-            // echo "<h1>ECCO LA TUA PASSWORD DI " . $length . " CARATTERI</h1>";
-            // $passw = implode("",$passwArr);
-            // echo $passw;
-            // echo $passw;
-            // var_dump($passw);
+            $generaPassw = generateRandomString($length);
+            echo $generaPassw;
 
+            // var_dump($randomString);
             // // Funzione generatore caratteri
             function generateRandomString($length) {
-                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!£$%&/()=?^_-:.;,<>';
+                // Queste variabili restituiscono un array di valori dal minimo al massimo
+                $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!?$&()£";
                 $charactersLength = strlen($characters);
-                $randomString = '';
-                for ($i = 1; $i <= $length; $i++) {
-                    $randomString .= $characters[random_int(0, $charactersLength - 1)];
-                }
-                return $randomString;
-            }
+                $passw = "";
+                $x = 0;
+                // Finchè all'incremento di valore x non ha raggiunto il valore di $charactersLength non esce dal ciclo
+                while (++$x <= $length) {
+                    // Associa a password il valore di se stesso più un carattere random preso dall'array $characters
+                    $passw = $passw . $characters[rand(0,$charactersLength - 1)];
+                };
+                return $passw;
+
+            };
+            // generateRandomString();
 
             // generateRandomString();
             // echo $randomString;
